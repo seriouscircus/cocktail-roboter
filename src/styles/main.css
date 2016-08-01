@@ -52,7 +52,7 @@ header h1 {
 
 footer {
     flex: 0 0 auto;
-    padding: 2rem;
+    padding: 1.5rem 0 2rem 0;
 }
 
 button {
@@ -105,7 +105,8 @@ body > section {
 /* --------------------------------------- */
 
 .flavors {
-    height: 75%;
+    height: 100%;
+    flex: 1 1 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -135,6 +136,7 @@ body > section {
 .flavors article.selected {
     color: white;
     border: 2px solid white;
+    transition: all 0.2s;
 }
 
 .flavors article > span {
@@ -144,15 +146,38 @@ body > section {
     font-weight: 100;
     text-align: center;
     line-height: 1.2em;
+    transition: all 0.2s;
 }
 
 @media (min-width: 600px) {
     .flavors article > span {
-        font-size: 3vw;
+        font-size: 2vw;
     }
 }
 
-#selection-view .do-it-button {
+#selection-view .ingredients {
+    display: none;
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    margin: 1rem 1rem 0 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#selection-view .ingredients > div {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+#selection-view .reset-button {
+    display: none;
+    padding-left: 1em;
+    text-transform: uppercase;
+    color: #333333;
+    text-decoration: none;
 }
 
 /* --------------------------------------- */

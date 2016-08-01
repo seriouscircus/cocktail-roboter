@@ -1,26 +1,24 @@
 $(document).ready(function () {
     var selectedFlavors = [];
 
-    function extractSelectedFlavors() {
-        selectedFlavors = [];
-        $('#selection-view .flavors article.selected').each(function (index, element) {
-            selectedFlavors.push($(element).data().flavor);
-        });
-    }
-
-    $('#selection-view .flavors article').one('click', function () {
-        var $el = $(this);
-        if ($el.data().selected) {
-            $el.data().selected = false;
-            $el.removeClass('selected');
-        } else {
-            $el.data().selected = true;
-            $el.addClass('selected');
-        }
+    $('#selection-view .flavors article').on('click', function () {
+        var element = $(event.currentTarget);
+        selectedFlavors.push($(element).text());
+        element.addClass('selected');
+        $('#selection-view .ingredients').show();
+        $('#selection-view .ingredients span').text(selectedFlavors.join(' + '));
+        $('#selection-view .reset-button').show();
     });
 
+    $('#selection-view .reset-button').on('click', function () {
+        selectedFlavors = [];
+        $('#selection-view .flavors article').removeClass('selected');
+        $('#selection-view .ingredients').hide();
+        $('#selection-view .reset-button').hide();
+    });
+
+
     $('#selection-view footer button').on('click', function () {
-        extractSelectedFlavors();
         if (selectedFlavors.length < 1 ) {
             return;
         }
