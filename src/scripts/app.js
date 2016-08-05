@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var selectedFlavors = [];
 
-    $('#selection-view .flavors article').on('click', function () {
+    $('#selection-view .flavors article').on('click', function (event) {
         var element = $(event.currentTarget);
         selectedFlavors.push($(element).text());
         element.addClass('selected');
